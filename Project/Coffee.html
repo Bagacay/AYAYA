@@ -1,0 +1,835 @@
+﻿<!-- <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Coffee.aspx.cs"
+Inherits="Project.WebForm1" %> -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/tooplate-chilling-cafe.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <title>Coffee</title>
+
+    <style>
+      p {
+        font-size: 17px;
+        font-family: Verdana, sans-serif;
+      }
+
+      body,
+      html {
+        background-color: #e2e1e0;
+        color: #e2e1e0;
+        font-size: 20px;
+        scroll-behavior: smooth;
+        font-family: Verdana, sans-serif;
+      }
+
+      #section1 {
+        background-image: url("img/chilling-backg.jpg");
+        font-family: Verdana, sans-serif;
+      }
+
+      #section2 {
+        background-color: #1a1a1a;
+        font-family: Verdana, sans-serif;
+      }
+
+      #section3 {
+        background-color: #e2e1e0;
+        font-family: Verdana, sans-serif;
+      }
+      #section3 img {
+        max-width: 70%;
+        margin-left: 20px;
+        font-family: Verdana, sans-serif;
+      }
+      #section3 span {
+        margin-right: 100px;
+        font-family: Verdana, sans-serif;
+      }
+
+      #section3 h2 {
+        margin-right: 20px;
+        font-family: Verdana, sans-serif;
+      }
+
+      #section4 {
+        background-color: #1a1a1a;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        font-family: Verdana, sans-serif;
+      }
+
+      #About {
+        background-color: #e2e1e0;
+        color: #1a1a1a;
+        padding-bottom: 100px;
+        padding-right: 500px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .About p {
+        margin-left: 100px;
+        text-align: left;
+        font-size: 17px;
+        font-weight: normal;
+        text-align: justify;
+        font-family: Verdana, sans-serif;
+      }
+      .About img {
+        max-width: 60%;
+      }
+
+      .About h2 {
+        text-align: center;
+        padding-left: 150px;
+        font-family: Verdana, sans-serif;
+      }
+
+      #Social {
+        background-color: #1a1a1a;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        color: #e2e1e0;
+        font-family: Verdana, sans-serif;
+      }
+
+      .Social p {
+        color: #e2e1e0;
+        margin: 70px 0 70px 50px;
+        padding-left: 115px;
+        text-align: left;
+        font-size: small;
+        font-weight: 500;
+        font-family: Verdana, sans-serif;
+      }
+
+      .main-banner .caption h3 {
+        margin-top: 300px;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #e2e1e0;
+        font-family: Verdana, sans-serif;
+      }
+
+      .main-banner .caption h4 {
+        font-size: 150px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #e2e1e0;
+        margin-bottom: -130px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .main-banner .caption h5 {
+        font-size: 35px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-top: 85px;
+        margin-left: 100px;
+        text-align: left;
+        color: #e2e1e0;
+        font-family: Verdana, sans-serif;
+      }
+
+      .content {
+        padding: 0 100px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .navbar {
+        padding: 15px 0;
+        position: fixed;
+        transition: all 0.3s ease;
+        width: 100%;
+        background-color: #1c1c1c;
+        font-family: Verdana, sans-serif;
+      }
+
+      .navbar.sticky {
+        padding: 0 0;
+        opacity: 0.75;
+      }
+
+      .navbar .content {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar .logo a {
+        font-size: 40px;
+        font-weight: 700;
+        text-decoration: none;
+        font-family: Verdana, sans-serif;
+      }
+
+      .navbar .menu-list {
+        display: inline-flex;
+      }
+
+      .menu-list li {
+        list-style: none;
+        font-weight: 700;
+      }
+
+      .menu-list li a {
+        font-size: 15px;
+        margin-left: 55px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-family: Verdana, sans-serif;
+      }
+
+      .menu-list li a:hover {
+        color: #22201f;
+      }
+
+      .tm-container {
+        padding: 0 0 0 0;
+        padding-bottom: 100px;
+      }
+
+      .tm-section-header {
+        color: #1a1a1a;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 100px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-family: Verdana, sans-serif;
+      }
+
+      img {
+        max-width: 100%;
+        padding-left: 110px;
+        padding-top: 30px;
+      }
+
+      .tm-item-name {
+        color: #1a1a1a;
+
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+        padding-left: 100px;
+        font-family: Verdana, sans-serif;
+      }
+
+      figcaption span {
+        display: block;
+        color: #1a1a1a;
+        font-size: 17px;
+        text-align: center;
+        padding-left: 90px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-special-items {
+        display: flex;
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+
+      .tm-special-item {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .w3-center {
+        font-weight: 700;
+        padding-bottom: 30px;
+        font-size: 30px;
+        font-family: Verdana, sans-serif;
+      }
+
+      th {
+        color: #1a1a1a;
+        font-size: 17px;
+        padding-top: 50px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-text-left {
+        color: #1a1a1a;
+        font-size: 17px;
+        font-family: Verdana, sans-serif;
+        padding: 10px 50px 10px 180px;
+      }
+
+      td {
+        color: #1a1a1a;
+        font-size: 17px;
+        padding: 20px 50px;
+        margin-bottom: 100px;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-section-small {
+        max-width: 490px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .tm-social-icons {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .tm-social-icons i {
+        font-size: 1.2rem;
+      }
+
+      .tm-social-link-container {
+        display: inline-block;
+      }
+
+      .tm-social-link {
+        color: #fff;
+        background-color: #c5ced8;
+        border-radius: 2px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-social-link:hover {
+        background-color: #808e9e;
+      }
+
+      .tm-contact-link {
+        color: #333333;
+        font-family: Verdana, sans-serif;
+        text-decoration: none;
+      }
+
+      a {
+        transition: all 0.3s ease;
+      }
+
+      .tm-contact-link:hover {
+        color: #22201f;
+      }
+
+      .tm-footer-text {
+        font-size: 0.9rem;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-footer-link {
+        color: #fff;
+        text-decoration: none;
+        font-family: Verdana, sans-serif;
+      }
+
+      .tm-footer-link:hover {
+        color: #c5ced8;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+
+    <nav class="navbar">
+      <div class="content">
+        <div class="logo">
+          <div class="icon cancel-btn"></div>
+          <a href="#">AYAYA</a>
+        </div>
+        <ul class="menu-list" id="mymenu">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#Menu">MENU</a></li>
+          <li><a href="#Order">BOOK A TABLE</a></li>
+          <li><a href="#About">ABOUT</a></li>
+        </ul>
+      </div>
+      <div class="icon menu-btn"></div>
+    </nav>
+
+    <div class="section" id="section1">
+      <div class="main-banner w3-container">
+        <div class="caption">
+          <h3>DROWN YOUR TROUBLES IN</h3>
+          <h4>COFFEE</h4>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+    <div class="section" id="section2">
+      <div class="main-banner w3-container">
+        <div class="caption">
+          <h5>
+            WE BELIEVE A CUP OF COFFEE IS ONE OF THE
+            <br />
+            IMPORTANT SIMPLE PLEASURE IN LIFE.
+          </h5>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+    </div>
+
+    <div class="section" id="section3">
+      <div class="tm-container">
+        <div class="tm-main-content">
+          <div id="tm-intro-img"></div>
+
+          <!-- Special Items -->
+          <section class="tm-section" id="Menu">
+            <h2 class="tm-section-header">MENU</h2>
+            <div class="tm-special-items">
+              <figure class="tm-special-item">
+                <img
+                  src="img/chilling-cafe-11.jpg"
+                  alt="Image"
+                  class="tm-special-item-img"
+                />
+                <figcaption>
+                  <span class="tm-item-name">Soft Deli Cup</span>
+                  <span class="tm-item-price">P99</span>
+                </figcaption>
+              </figure>
+              <figure class="tm-special-item">
+                <img
+                  src="img/chilling-cafe-12.jpg"
+                  alt="Image"
+                  class="tm-special-item-img"
+                />
+                <figcaption>
+                  <span class="tm-item-name">Coffee Art</span>
+                  <span class="tm-item-price">P99</span>
+                </figcaption>
+              </figure>
+              <figure class="tm-special-item">
+                <img
+                  src="img/chilling-cafe-13.jpg"
+                  alt="Image"
+                  class="tm-special-item-img"
+                />
+                <figcaption>
+                  <span class="tm-item-name">Speciality Tea</span>
+                  <span class="tm-item-price">P99</span>
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- Coffee Menu -->
+          <section class="tm-section">
+            <div class="tm-special-items">
+              <figure class="tm-special-item">
+                <figcaption>
+                  <table>
+                    <tr class="tm-tr-header">
+                      <th>&nbsp;</th>
+                      <th>Hot</th>
+                      <th>Iced</th>
+                      <th>Addon</th>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Americano</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Cuppucino</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Fresh Latte</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Mocha</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Espresso</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Black Coffee</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Black Coffee</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                  </table>
+                </figcaption>
+              </figure>
+
+              <!-- Tea Menu -->
+              <figure class="tm-special-item">
+                <figcaption>
+                  <table>
+                    <tr class="tm-tr-header">
+                      <th>&nbsp;</th>
+                      <th>Hot</th>
+                      <th>Iced</th>
+                      <th>Addon</th>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Pure White Milk</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Hong Kong Tea</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Taiwan Tea</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Bubble Tea</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Mixed Fruit Tea</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                    </tr>
+                    <tr>
+                      <td class="tm-text-left">Original Tea</td>
+                      <td>P99</td>
+                      <td>P99</td>
+                      <td>-</td>
+                    </tr>
+                  </table>
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Order -->
+      <form class="section" id="section4" runat="server">
+        <div class="w3-container w3-padding-64" id="Order">
+          <div class="w3-content">
+            <h1 class="w3-center">BOOK NOW</h1>
+            <div class="w3-row-padding">
+              <div class="w3-half">
+                <label>First Name</label>
+                <asp:TextBox
+                  class="w3-input w3-border w3-margin-bottom"
+                  ID="Fname"
+                  runat="server"
+                  placeholder="Enter first name"
+                  required="true"
+                ></asp:TextBox>
+              </div>
+              <div class="w3-half">
+                <label>Last Name</label>
+                <asp:TextBox
+                  class="w3-input w3-border w3-margin-bottom"
+                  ID="Lname"
+                  runat="server"
+                  placeholder="Enter last name"
+                  required="true"
+                ></asp:TextBox>
+              </div>
+            </div>
+            <div class="w3-row-padding">
+              <div class="w3-half">
+                <label>Mobile</label>
+                <asp:TextBox
+                  class="w3-input w3-border w3-margin-bottom"
+                  ID="Mobile"
+                  runat="server"
+                  placeholder="Enter mobile"
+                  required="true"
+                ></asp:TextBox>
+              </div>
+              <div class="w3-half">
+                <label>Email</label>
+                <asp:TextBox
+                  class="w3-input w3-border w3-margin-bottom"
+                  ID="Email"
+                  runat="server"
+                  placeholder="Enter email"
+                  required="true"
+                ></asp:TextBox>
+              </div>
+            </div>
+
+            <div class="w3-row-padding">
+              <div class="w3-half">
+                <label>Booking</label>
+                <asp:DropDownList
+                  class="w3-select w3-border w3-margin-bottom"
+                  ID="Booking"
+                  runat="server"
+                >
+                  <asp:ListItem
+                    Selected="True"
+                    disabled="true"
+                    Value="Select Payment"
+                    >Booking for</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 1"
+                    >Booking for 1</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 2"
+                    >Booking for 2</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 3"
+                    >Booking for 3</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 4"
+                    >Booking for 4</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 5"
+                    >Booking for 5</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 6"
+                    >Booking for 6</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 7"
+                    >Booking for 7</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 8"
+                    >Booking for 8</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 9"
+                    >Booking for 9</asp:ListItem
+                  >
+                  <asp:ListItem Value="Booking for 10"
+                    >Booking for 10</asp:ListItem
+                  >
+                </asp:DropDownList>
+              </div>
+              <div class="w3-half">
+                <label>Date & Time</label>
+                <asp:TextBox
+                  class="w3-input w3-border w3-margin-bottom"
+                  ID="Date_time"
+                  runat="server"
+                  placeholder="Enter date & time"
+                  required="true"
+                  TextMode="DateTimeLocal"
+                ></asp:TextBox>
+              </div>
+            </div>
+
+            <div class="w3-row-padding">
+              <label>&nbsp;</label>
+              <asp:Button
+                class="w3-button w3-light-grey w3-hover-#c5bab3 w3-block"
+                ID="ORDER_Btn"
+                runat="server"
+                Text="SUBMIT"
+                OnClick="ORDER_Btn_Click"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- About our cafe -->
+    <div class="About" id="About">
+      <table>
+        <tr>
+          <th>
+            <image src="img/bing-shilling.jpg" />
+          </th>
+          <th>
+            <h2 class="tm-section-header">ABOUT</h2>
+            <p>
+              We have two obsessions: coffee and tea. We’re passionate about
+              sharing both with you, which is why we created AYAYA. Here is a
+              place to drink, meet friends, and enjoy an atmosphere away from
+              the hassles of everyday life.
+            </p>
+
+            <p>
+              If you’ve never visited AYAYA before, you’re in for a treat. We
+              source the best coffee beans and freshest ingredients for a
+              phenomenal drinking experience.
+            </p>
+          </th>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Talk to us -->
+    <div class="Social" id="Social">
+      <table>
+        <tr>
+          <th>
+            <section class="tm-section tm-section-small">
+              <p class="w3-justify">AYAYA</p>
+              <div class="tm-social-icons">
+                <div class="tm-social-link-container">
+                  <a href="https://fb.com" class="tm-social-link">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </div>
+                <div class="tm-social-link-container">
+                  <a href="https://twitter.com" class="tm-social-link">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div class="tm-social-link-container">
+                  <a href="https://instagram.com" class="tm-social-link">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+                <div class="tm-social-link-container">
+                  <a href="https://pinterest.com" class="tm-social-link">
+                    <i class="fab fa-pinterest"></i>
+                  </a>
+                </div>
+              </div>
+            </section>
+            <footer>
+              <p class="tm-text-white tm-footer-text">
+                Copyright &copy; 2020 Company Name. Design:
+                <a href="https://www.tooplate.com" class="tm-footer-link"
+                  >Tooplate</a
+                >
+              </p>
+            </footer>
+          </th>
+          <th>
+            <p></p>
+            <p>
+              MONDAY - FRIDAY
+              <br />
+              6:00 AM TO 9:00 PM
+            </p>
+
+            <p>
+              SATURDAY - SUNDAY
+              <br />
+              10:00 AM TO 8:00 PM
+            </p>
+          </th>
+          <th>
+            <p></p>
+            <p>
+              551 MCARTHUR HIGHWAY, MALANDAY
+              <br />
+              PHILIPPINES
+            </p>
+
+            <p>
+              CONTACT:
+              <br />
+              01234567890
+            </p>
+          </th>
+        </tr>
+      </table>
+    </div>
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+      $(function () {
+        // Adjust intro image height based on width.
+        $(window).resize(function () {
+          var img = $("#tm-intro-img");
+          var imgWidth = img.width();
+
+          // 640x425 ratio
+          var imgHeight = (imgWidth * 425) / 640;
+
+          if (imgHeight < 300) {
+            imgHeight = 300;
+          }
+
+          img.css("min-height", imgHeight + "px");
+        });
+      });
+    </script>
+    <script>
+      const body = document.querySelector("body");
+      const navbar = document.querySelector(".navbar");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = () => {
+        navbar.classList.add("show");
+        menuBtn.classList.add("hide");
+        body.classList.add("disabled");
+      };
+      cancelBtn.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      };
+      window.onscroll = () => {
+        this.scrollY > 20
+          ? navbar.classList.add("sticky")
+          : navbar.classList.remove("sticky");
+      };
+    </script>
+    <asp:SqlDataSource
+      ID="SqlDataSource1"
+      runat="server"
+      ConnectionString="<%$ ConnectionStrings:Database %>"
+      SelectCommand="SELECT * FROM [Order]"
+    ></asp:SqlDataSource>
+  </body>
+</html>
